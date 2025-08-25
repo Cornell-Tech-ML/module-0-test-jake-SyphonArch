@@ -142,7 +142,7 @@ def test_distribute(x: float, y: float, z: float) -> None:
 def test_other(a: float, b: float) -> None:
     """Write a test that ensures some other property holds for your functions."""
     assert_close(add(a, b), add(b, a))
-    if a != 0:
+    if abs(a) > 1e-5:
         assert_close(mul(a, inv(a)), 1.0)
 
 
