@@ -62,6 +62,57 @@ Derivative Functions (Backpropagation):
 
 # TODO: Implement all functions listed above for Task 0.1
 
+def mul(x, y):
+    return x * y
+
+def id(x):
+    return x
+
+def add(x, y):
+    return x + y
+
+def neg(x):
+    return -x
+
+def lt(x, y):
+    return x < y
+
+def eq(x, y):
+    return x == y
+
+def max(x, y):
+    return x if x > y else y
+
+def is_close(x, y):
+    return abs(x - y) < 1e-2
+
+def sigmoid(x):
+    if x >= 0:
+        return 1 / (1 + exp(-x))
+    else:
+        return exp(x) / (1 + exp(x))
+
+def relu(x):
+    return max(0, x)
+
+def log(x):
+    return math.log(x)
+
+def exp(x):
+    return math.exp(x)
+
+def inv(x):
+    return 1 / x
+
+def log_back(x, d):
+    return d / x
+
+def inv_back(x, d):
+    return -d / (x ** 2)
+
+def relu_back(x, d):
+    return d if x > 0 else 0
+
 
 # =============================================================================
 # Task 0.3: Higher-Order Functions
