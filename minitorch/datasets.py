@@ -1,10 +1,4 @@
-import math
-import random
-from dataclasses import dataclass
-from typing import List, Tuple
-
-"""
-2D Classification Datasets for MiniTorch Visualization
+"""2D Classification Datasets for MiniTorch Visualization
 
 This module provides various 2D point classification datasets used for testing
 and visualizing machine learning models in MiniTorch.
@@ -21,6 +15,11 @@ To pass the type checking tests, you need to:
 3.ENSURE ALL IMPORTS are properly typed
    The required imports are already provided at the top
 """
+
+import math
+import random
+from dataclasses import dataclass
+from typing import List, Tuple
 
 
 def make_pts(N: int) -> List[Tuple[float, float]]:
@@ -93,6 +92,7 @@ def circle(N: int) -> Graph:
 
 def spiral(N: int) -> Graph:
     """Generate a spiral dataset."""
+
     def x(t: float) -> float:
         return t * math.cos(t) / 20.0
 

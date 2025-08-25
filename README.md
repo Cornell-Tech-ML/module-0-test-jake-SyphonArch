@@ -18,7 +18,7 @@ In this assignment, you will:
 Before beginning this assignment, please complete the environment setup:
 
 1. **Review the installation guide**: Follow the detailed instructions in [`installation.md`](installation.md) to configure your development environment
-2. **Verify your setup**: Ensure all dependencies are properly installed and your environment is working correctly. If you need help as your TAs. 
+2. **Verify your setup**: Ensure all dependencies are properly installed and your environment is working correctly. If you need help as your TAs.
 
 ### Assignment Overview
 
