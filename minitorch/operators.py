@@ -62,6 +62,9 @@ Derivative Functions (Backpropagation):
 
 # TODO: Implement all functions listed above for Task 0.1
 
+import math
+
+
 def mul(x, y):
     return x * y
 
