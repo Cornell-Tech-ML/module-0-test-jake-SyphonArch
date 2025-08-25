@@ -54,7 +54,7 @@ class Module:
         for k, p in self.__dict__["_parameters"].items():
             out.append((k, p))
         # recurse into children
-        for child_name, child in self.modules():
+        for child_name, child in self.__dict__["_modules"].items():
             for name, param in child.named_parameters():
                 out.append((f"{child_name}.{name}", param))
         return out
