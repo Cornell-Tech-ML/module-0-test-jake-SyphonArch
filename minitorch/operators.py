@@ -3,6 +3,8 @@
 This module implements fundamental mathematical operations that serve as building blocks
 for neural network computations in MiniTorch.
 """
+from collections.abc import Callable
+import math
 
 # =============================================================================
 # Task 0.1: Mathematical Operators
@@ -62,7 +64,6 @@ Derivative Functions (Backpropagation):
 
 # TODO: Implement all functions listed above for Task 0.1
 
-import math
 
 
 def mul(x: float, y: float) -> float:
@@ -177,15 +178,15 @@ FUNCTIONS TO BUILD USING THE ABOVE:
 """
 
 
-def map(fn: callable, iterable: list) -> list:
+def map(fn: Callable, iterable: list) -> list:
     """Apply function `fn` to each element of `iterable`."""
     return [fn(x) for x in iterable]
 
-def zipWith(fn: callable, list1: list, list2: list) -> list:
+def zipWith(fn: Callable, list1: list, list2: list) -> list:
     """Combine corresponding elements from two lists using function `fn`."""
     return [fn(x, y) for x, y in zip(list1, list2)]
 
-def reduce(fn: callable, iterable: list, initial_value: float) -> float:
+def reduce(fn: Callable, iterable: list, initial_value: float) -> float:
     """Reduce iterable to single value by repeatedly applying `fn`."""
     result = initial_value
     for x in iterable:
