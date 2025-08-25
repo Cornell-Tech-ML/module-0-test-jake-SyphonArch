@@ -49,13 +49,26 @@ class Module:
             The name and `Parameter` of each ancestor parameter.
 
         """
-        # TODO: Implement for Task 0.4.
-        raise NotImplementedError("Need to implement for Task 0.4")
+        out: list[Tuple[str, Parameter]] = []
+        # local params
+        for k, p in self.__dict__["_parameters"].items():
+            out.append((k, p))
+        # recurse into children
+        for child_name, child in self.modules():
+            for name, param in child.named_parameters():
+                out.append((f"{child_name}.{name}", param))
+        return out
 
     def parameters(self) -> Sequence[Parameter]:
         """Enumerate over all the parameters of this module and its descendents."""
-        # TODO: Implement for Task 0.4.
-        raise NotImplementedError("Need to implement for Task 0.4")
+        out: list[Parameter] = []
+        # local params
+        for p in self.__dict__["_parameters"].values():
+            out.append(p)
+        # recurse into children
+        for child in self.modules():
+            out.extend(child.parameters())
+        return out
 
     def add_parameter(self, k: str, v: Any) -> Parameter:
         """Manually add a parameter. Useful helper for scalar parameters.
