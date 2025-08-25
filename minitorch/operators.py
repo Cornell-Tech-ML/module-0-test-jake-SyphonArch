@@ -65,55 +65,71 @@ Derivative Functions (Backpropagation):
 import math
 
 
-def mul(x, y):
+def mul(x: float, y: float) -> float:
+    """Multiply two numbers."""
     return x * y
 
-def id(x):
+def id(x: float) -> float:
+    """Identity function: return input unchanged."""
     return x
 
-def add(x, y):
+def add(x: float, y: float) -> float:
+    """Add two numbers."""
     return x + y
 
-def neg(x):
+def neg(x: float) -> float:
+    """Negate a number."""
     return -x
 
-def lt(x, y):
+def lt(x: float, y: float) -> bool:
+    """Check if x < y."""
     return x < y
 
-def eq(x, y):
+def eq(x: float, y: float) -> bool:
+    """Check if x == y."""
     return x == y
 
-def max(x, y):
+def max(x: float, y: float) -> float:
+    """Return the larger of two numbers."""
     return x if x > y else y
 
-def is_close(x, y):
+def is_close(x: float, y: float) -> bool:
+    """Check if two numbers are approximately equal."""
     return abs(x - y) < 1e-2
 
-def sigmoid(x):
+def sigmoid(x: float) -> float:
+    """Apply sigmoid activation."""
     if x >= 0:
         return 1 / (1 + exp(-x))
     else:
         return exp(x) / (1 + exp(x))
 
-def relu(x):
+def relu(x: float) -> float:
+    """Apply ReLU activation."""
     return max(0, x)
 
-def log(x):
+def log(x: float) -> float:
+    """Natural logarithm."""
     return math.log(x)
 
-def exp(x):
+def exp(x: float) -> float:
+    """Exponential function."""
     return math.exp(x)
 
-def inv(x):
+def inv(x: float) -> float:
+    """Reciprocal function."""
     return 1 / x
 
-def log_back(x, d):
+def log_back(x: float, d: float) -> float:
+    """Derivative of log: d/dx[log(x)] = 1/x."""
     return d / x
 
-def inv_back(x, d):
+def inv_back(x: float, d: float) -> float:
+    """Derivative of reciprocal: d/dx[1/x] = -1/x²."""
     return -d / (x ** 2)
 
-def relu_back(x, d):
+def relu_back(x: float, d: float) -> float:
+    """Derivative of ReLU: d/dx[relu(x)] = 1 if x>0 else 0."""
     return d if x > 0 else 0
 
 
@@ -161,26 +177,33 @@ FUNCTIONS TO BUILD USING THE ABOVE:
 """
 
 
-def map(fn, iterable):
+def map(fn: callable, iterable: list) -> list:
+    """Apply function `fn` to each element of `iterable`."""
     return [fn(x) for x in iterable]
 
-def zipWith(fn, list1, list2):
+def zipWith(fn: callable, list1: list, list2: list) -> list:
+    """Combine corresponding elements from two lists using function `fn`."""
     return [fn(x, y) for x, y in zip(list1, list2)]
 
-def reduce(fn, iterable, initial_value):
+def reduce(fn: callable, iterable: list, initial_value: float) -> float:
+    """Reduce iterable to single value by repeatedly applying `fn`."""
     result = initial_value
     for x in iterable:
         result = fn(result, x)
     return result
 
-def negList(lst):
+def negList(lst: list) -> list:
+    """Negate all elements in a list."""
     return map(neg, lst)
 
-def addLists(lst1, lst2):
+def addLists(lst1: list, lst2: list) -> list:
+    """Add corresponding elements from two lists."""
     return zipWith(add, lst1, lst2)
 
-def sum(lst):
+def sum(lst: list) -> float:
+    """Sum all elements in a list."""
     return reduce(add, lst, 0)
 
-def prod(lst):
+def prod(lst: list) -> float:
+    """Calculate product of all elements in a list."""
     return reduce(mul, lst, 1)
