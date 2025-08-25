@@ -160,4 +160,27 @@ FUNCTIONS TO BUILD USING THE ABOVE:
         Implementation hint: Use reduce with mul function and initial value 1
 """
 
-# TODO: Implement all functions listed above for Task 0.3
+
+def map(fn, iterable):
+    return [fn(x) for x in iterable]
+
+def zipWith(fn, list1, list2):
+    return [fn(x, y) for x, y in zip(list1, list2)]
+
+def reduce(fn, iterable, initial_value):
+    result = initial_value
+    for x in iterable:
+        result = fn(result, x)
+    return result
+
+def negList(lst):
+    return map(neg, lst)
+
+def addLists(lst1, lst2):
+    return zipWith(add, lst1, lst2)
+
+def sum(lst):
+    return reduce(add, lst, 0)
+
+def prod(lst):
+    return reduce(mul, lst, 1)
